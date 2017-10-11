@@ -27,8 +27,8 @@ public class Order {
 
 	public double getTotal() {
 		double total = 0;
-		for (int i = 0; i < orders.size(); i++) {
-			total += orders.get(i).getMultiple();
+		for (Item item : orders) {
+			total += item.getPrice()*item.getQuantity();
 		}
 		return total;
 	}

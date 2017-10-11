@@ -21,10 +21,7 @@ public class Item {
 	public int getQuantity() {
 		return quantity;
 	}
-	public double getMultiple() {
-		
-		return quantity*price;
-	}
+	
 @Override 
 public String toString() {
 	return "Name: " + this.name+ "\tPrice: "+ this.price+
