@@ -1,4 +1,4 @@
-import java.text.DecimalFormat;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,9 +11,10 @@ public class ShoppingCartApp {
 		String nameOfItem = "";
 		double priceOfItem = 0.0;
 		int quantityOfItem = 0;
-		DecimalFormat df = new DecimalFormat("#.##");
+		
 
 		ArrayList<Order> cart = new ArrayList<Order>();
+		
 		System.out.println("Welcome to the We Can Code ITs online store");
 		while (!continueShopping.equals("n")) {
 
@@ -29,20 +30,18 @@ public class ShoppingCartApp {
 			input.nextLine();
 			orders.addToOrder(new Item(nameOfItem, priceOfItem, quantityOfItem));
 			cart.add(orders);
+			orders.displayOrder();
 			System.out.println("Would you like to continue shopping? (y/n)");
 			continueShopping = input.nextLine();
 		}
-		System.out.println("Current cart");
-		orders.displayOrder();
-		System.out.println("Total price: " + df.format(orders.getTotal()));
-		System.out.println();
-
+		
 		System.out.println("\nWould you like to remove anything from the cart? (y/n)");
 		String removeCart = input.nextLine();
 		while (!removeCart.equals("n")) {
 			System.out.println("Enter the name of the item you would like us to remove ");
 			String removeName = input.nextLine();
 			orders.removeItem(removeName);
+			orders.displayOrder();
 			System.out.println("Would you like us to remove anything else? (y/n)");
 			removeCart = input.nextLine();
 
@@ -51,8 +50,6 @@ public class ShoppingCartApp {
 
 		System.out.println("Here is your final cart: ");
 		orders.displayOrder();
-		System.out.println();
-		System.out.println("Total price: " + df.format(orders.getTotal()));
 	}
 
 }
