@@ -22,7 +22,7 @@ public class ShoppingCartTest {
 	public void shouldBeAbleToGetPrice() {
 		Item underTest = new Item("Bob", 5, 0);
 		double check = underTest.getPrice();
-		assertEquals(5, 5.1, check);
+		assertEquals(5, 0, check);
 	}
 
 	@Test
@@ -58,7 +58,7 @@ public class ShoppingCartTest {
 		underTest.addToOrder(new Item("Bob", 5, 1));
 		underTest.addToOrder(new Item("Brock", 5, 1));
 		double check = underTest.getTotal();
-		assertEquals(10, 10.1, check);
+		assertEquals(10, 0, check);
 	}
 
 	@Test
@@ -68,6 +68,6 @@ public class ShoppingCartTest {
 		underTest.addToOrder(new Item("Brock", 5, 1));
 		underTest.removeItem("Brock");
 		double check = underTest.getTotal();
-		assertEquals(5, 5.1, check);
+		assertEquals(5,0, check);
 	}
 }
